@@ -51,7 +51,7 @@ const Category = () => {
                     <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SALADS</h2>
                 </SwiperSlide>
             </Swiper>
-            <div className='h-image h-[80vh] flex items-center justify-center'>
+            <div className='mb-20 h-image h-[80vh] flex items-center justify-center'>
                 <div className='bg-white h-[40vh] text-center absolute flex items-center max-w-screen-lg mx-auto'>
                     <div>
                         <h3 className='text-3xl uppercase'>Bistro Boss</h3>
