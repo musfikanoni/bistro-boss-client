@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.h-image {
+    background-image: url('./assets/home/chef-service.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}

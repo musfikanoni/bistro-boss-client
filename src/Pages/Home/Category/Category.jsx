@@ -11,40 +11,56 @@ import slide2 from '../../../assets/home/slide2.jpg';
 import slide3 from '../../../assets/home/slide3.jpg';
 import slide4 from '../../../assets/home/slide4.jpg';
 import slide5 from '../../../assets/home/slide5.jpg';
+import SectionTitle from '../../../components/sectionTitle';
 
 const Category = () => {
     return (
-        <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
-        centeredSlides={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper mb-24"
-      >
-        <SwiperSlide>
-            <img src={slide1} alt="" />
-            <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SALADS</h2>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src={slide2} alt="" />
-            <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>PIZZAS</h2>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src={slide3} alt="" />
-            <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SOUPS</h2>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src={slide4} alt="" />
-            <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>DESSERTS</h2>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src={slide5} alt="" />
-            <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SALADS</h2>
-        </SwiperSlide>
-      </Swiper>
+        <section>
+            <SectionTitle
+            subHeading={'From 11.00am to 10.00pm'}
+            heading={'Order Online'}
+            ></SectionTitle>
+            <Swiper
+                slidesPerView={4}
+                spaceBetween={30}
+                centeredSlides={true}
+                pagination={{
+                clickable: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper mb-24"
+            >
+                <SwiperSlide>
+                    <img src={slide1} alt="" />
+                    <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SALADS</h2>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={slide2} alt="" />
+                    <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>PIZZAS</h2>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={slide3} alt="" />
+                    <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SOUPS</h2>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={slide4} alt="" />
+                    <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>DESSERTS</h2>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={slide5} alt="" />
+                    <h2 className='lg:text-4xl uppercase text-center -mt-16 text-slate-100'>SALADS</h2>
+                </SwiperSlide>
+            </Swiper>
+            <div className='h-image h-[80vh] flex items-center justify-center'>
+                <div className='bg-white h-[40vh] text-center absolute flex items-center max-w-screen-lg mx-auto'>
+                    <div>
+                        <h3 className='text-3xl uppercase'>Bistro Boss</h3>
+                        <p className='px-20 py-5'>Experience a blend of flavors and ambiance at our restaurant, where every dish is crafted with passion. Enjoy fresh, locally sourced ingredients in a warm, inviting atmosphere. Perfect for intimate dinners or lively gatherings.</p>
+                    </div>
+                </div>
+                {/* <img src={banner} alt="" /> */}
+            </div>
+        </section>
     );
 };
 
