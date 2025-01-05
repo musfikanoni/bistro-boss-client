@@ -10,22 +10,22 @@ const Banner = () => {
     return (
         <div>
             <Carousel>
-                <div>
+                <div className="min-h-[700px]">
                     <img src={img1} />
                 </div>
-                <div>
+                <div className="min-h-[700px]">
                     <img src={img2} />
                 </div>
-                <div>
+                <div className="min-h-[700px]">
                     <img src={img3} />
                 </div>
-                <div>
+                <div className="min-h-[700px]">
                     <img src={img4} />
                 </div>
-                <div>
+                <div className="min-h-[700px]">
                     <img src={img5} />
                 </div>
-                <div>
+                <div className="min-h-[700px]">
                     <img src={img6} />
                 </div>
             </Carousel>
