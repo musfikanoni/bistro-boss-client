@@ -5,7 +5,7 @@ import featuredimg from '../../../assets/home/featured.jpg';
 const Featured = () => {
     return (
         <div className='featured-item bg-fixed'>
-            <div className="pt-16">
+            <div>
                 <SectionTitle
                 heading={'Featured Item'}
                 subHeading={'Check it Out'}></SectionTitle>
