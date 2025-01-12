@@ -2,8 +2,10 @@ import React from 'react';
 import { FaAd, FaHome, FaSearch } from 'react-icons/fa';
 import { FaCalendar, FaCartShopping, FaList } from 'react-icons/fa6';
 import { NavLink, Outlet } from 'react-router-dom';
+import useCart from '../hooks/useCart';
 
 const Dashboard = () => {
+    // const cart = useCart();
     return (
         <div className='flex'>
             <div className="w-64 min-h-screen bg-yellow-500">
@@ -23,7 +25,7 @@ const Dashboard = () => {
                     <li>
                         <NavLink to="/dashboard/cart">
                             <FaCartShopping className='text-white'></FaCartShopping>
-                            My cart
+                            {/* My cart ({cart.length}) */}
                         </NavLink>
                     </li>
                     <li>
@@ -53,7 +55,7 @@ const Dashboard = () => {
                     </li>
                 </ul>
             </div>
-            <div className='flex-1'>
+            <div className='flex-1 p-8'>
                 <Outlet></Outlet>
             </div>
         </div>
