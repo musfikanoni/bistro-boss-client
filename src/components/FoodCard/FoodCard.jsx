@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCart from "../../hooks/useCart";
 
 const FoodCard = ({item}) => {
     const {name, image, price, recipe, _id} = item;
@@ -9,7 +10,8 @@ const FoodCard = ({item}) => {
     const navigate = useNavigate();
     const {user} = useAuth();
     const location = useLocation();
-    const handleAddToCart = food => {
+    const [, refetch] = useCart();
+    const handleAddToCart = () => {
         if(user && user.email) {
             const cartItem = {
                 menuId: _id,
@@ -29,6 +31,8 @@ const FoodCard = ({item}) => {
                         showConfirmButton: false,
                         timer: 1500
                       });
+                    //refetch the cart to update the cart items count
+                    refetch()
                 }
             })
         }
@@ -41,7 +45,8 @@ const FoodCard = ({item}) => {
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, want to login!"
-              }).then((result) => {
+              })
+              .then((result) => {
                 if (result.isConfirmed) {
                   navigate('/login', {state: {from: location}})
                 }
@@ -62,7 +67,7 @@ const FoodCard = ({item}) => {
                     <p>{recipe}</p>
                     <div className="card-actions">
                     <button 
-                    onClick={() => handleAddToCart(item)}
+                    onClick={handleAddToCart}
                     className="btn text-yellow-600 uppercase bg-gray-200 border border-b-4 border-yellow-600">Add to cart</button>
                     </div>
                 </div>
