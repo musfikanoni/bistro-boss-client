@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const SignUp = () => {
@@ -11,6 +13,8 @@ const SignUp = () => {
     const {
         register, handleSubmit, reset, formState: { errors },
       } = useForm()
+
+      const axiosPublic = useAxiosPublic();
 
       const {createUser, updateUserProfile} = useContext(AuthContext);
       const navigate = useNavigate();
@@ -23,27 +27,31 @@ const SignUp = () => {
             console.log(logedUser);
             updateUserProfile(data.name, data.photoURL)
             .then(() => {
-                console.log('user profile info updated')
-                reset();
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "User created successfully", 
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-                  navigate('/')
+                // console.log('user profile info updated')
+                const userInfo = {
+                    name: data.name,
+                    email: data.email
+                }
+                axiosPublic.post('/users', userInfo)
+                .then(res => {
+                    if(res.data.insertId){
+                        console.log('user added database')
+                        reset();
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "User created successfully", 
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                          navigate('/')
+                    }
+                })
+   
             })
         })
       }
 
-    // const handleSignUp = e => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     console.log(email, password);
-    // }
 
     return (
         <div>
@@ -100,7 +108,10 @@ const SignUp = () => {
                                 <input className="btn btn-primary" type="submit" value="Sign up" />
                             </div>
                         </form>
-                        <p><small>Already have a account <Link to='/login'>go to Login</Link></small></p>
+                        <p className="px-8"><small>Already have a account <Link to='/login'>go to Login</Link></small></p>
+                        <div className="flex justify-center mt-3">
+                            <SocialLogin></SocialLogin>
+                        </div>
                     </div>
                 </div>
             </div>
